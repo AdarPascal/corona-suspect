@@ -1,94 +1,103 @@
-<div class="flex-container" [formGroup]="profileForm">
-    <mat-form-field appearance="legacy">
-        <mat-label>ID Number</mat-label>
-        <input matInput type="number" placeholder="ID Number" formControlName="idnumber" required>
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>First Name</mat-label>
-        <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
-        <mat-hint>First Name</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Last Name</mat-label>
-        <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
-        <mat-hint>Last Name</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Phone Number</mat-label>
-        <input matInput type="number" placeholder="Phone Number" formControlName="phoneNumber" required>
-        <mat-hint>Phone Number</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Date Of Positioning</mat-label>
-        <input matInput type="date" placeholder="Date Of Positioning" formControlName="timeOfPositioningDate" required>
-        <mat-hint>Date Of Positioning</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Time Of Positioning</mat-label>
-        <input matInput type="time" placeholder="Time Of Positioning" formControlName="timeOfPositioningTime" required>
-        <mat-hint>Time Of Positioning</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Place Of Positioning</mat-label>
-        <input matInput type="text" placeholder="Place Of Positioning" formControlName="placeOfPositioning" required>
-        <mat-hint>Place Of Positioning</mat-hint>
-    </mat-form-field>
-    <br>
-    <div class="radio">
-        <label>Has Declared Inocense: </label>
-        <mat-radio-group formControlName="hasDeclaredInocense" required>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
+<h1>אישור מפקד</h1>
+<div class="grid-container" [formGroup]="profileForm">
+    <div id="usercard-title" class="captaintitle">פרטי החשוד</div>
+    <div id="captaincard">
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>מס' ת.ז</mat-label>
+                <input matInput placeholder="אנא מלא מספר ת.ז" formControlName="idnumber" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>שם פרטי</mat-label>
+                <input matInput placeholder="הכנס את שמך הפרטי" formControlName="firstName" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>שם משפחה</mat-label>
+                <input matInput placeholder="הכנס את שם המשפחה שלך" formControlName="lastName" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>מס' טלפון</mat-label>
+                <input matInput placeholder="אנא מלא מספר טלפון" formControlName="phoneNumber" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>תאריך האיכון</mat-label>
+                <input matInput type="date" placeholder="אנא מלא תאריך האיכון" formControlName="timeOfPositioningDate" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>זמן האיכון</mat-label>
+                <input matInput type="time" placeholder="אנא מלא זמן האיכון" formControlName="timeOfPositioningTime" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>מיקום האיכון</mat-label>
+                <input matInput placeholder="אנא מלא מיקום האיכון" formControlName="placeOfPositioning" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <div class="radio">
+                <label>מערער על האיכון: </label>
+                <mat-radio-group formControlName="hasDeclaredInocense" required>
+                  <mat-radio-button [value]="true">כן</mat-radio-button>
+                  <mat-radio-button [value]="false">לא</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="data-block">
+            <div class="radio">
+                <label>נכח ביחידה בזמן האיכון: </label>
+                <mat-radio-group formControlName="wasInBaseDuringPos" required>
+                  <mat-radio-button [value]="true">כן</mat-radio-button>
+                  <mat-radio-button [value]="false">לא</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="data-block">
+            <div class="radio">
+                <label>נשלח לבידוד: </label>
+                <mat-radio-group formControlName="wasSentToConfinment" required>
+                  <mat-radio-button [value]="true">כן </mat-radio-button>
+                  <mat-radio-button [value]="false">לא</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
     </div>
-    <br>
-    <div class="radio">
-        <label>Was In Base During Pos: </label>
-        <mat-radio-group formControlName="wasInBaseDuringPos" required>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
-    </div>
-    <br>
-    <div class="radio">
-        <label>Was Sent To Confinment: </label>
-        <mat-radio-group formControlName="wasSentToConfinment" required>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
-    </div>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>First Name Commander</mat-label>
-        <input matInput type="text" placeholder="First Name Commander" formControlName="firstNameCommander" required>
-        <mat-hint>First Name</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Last Name Commander</mat-label>
-        <input matInput type="text" placeholder="Last Name Commander" formControlName="lastNameCommander" required>
-        <mat-hint>Last Name Commander</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="standard">
-        <mat-label>Phone Number Commander</mat-label>
-        <input matInput type="number" placeholder="Phone Number Commander" formControlName="phoneNumberCommander" required>
-        <mat-hint>Phone Number Commander</mat-hint>
-    </mat-form-field>
-    <br>
 
-    <!-- <p>
-        Value: {{ profileForm }}
-    </p> -->
 
-    <p>
-        <button [disabled]="profileForm.status === 'INVALID'" (click)="onSend()">Send</button>
-    </p>
+    <div id="usercard-title" class="captaintitle">פרטי המפקד</div>
+    <div id="usercard">
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>שם פרטי</mat-label>
+                <input matInput placeholder="הכנס את שמ הפרטי" formControlName="firstNameCommander" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>שם משפחה</mat-label>
+                <input matInput placeholder="הכנס את שם המשפחה" formControlName="lastNameCommander" required>
+            </mat-form-field>
+        </div>
+        <div class="data-block">
+            <mat-form-field>
+                <mat-label>מס' טלפון</mat-label>
+                <input matInput placeholder="אנא מלא מספר טלפון" formControlName="phoneNumberCommander" required>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div style="justify-self: center; margin-top: 80px;">
+        <button id="sendBtn" [disabled]="profileForm.status === 'INVALID'" (click)="onSend()"><mat-icon aria-hidden="false" aria-label="Example home icon">done_outline</mat-icon></button>
+    </div>
+
 </div>

@@ -31,8 +31,12 @@ export class SoldierFormComponent implements OnInit {
 
 
   onSend() {
-    this.soldierService.create(this.profileForm.value as ISoldierPage);
-    this.profileForm.reset();
+    this.soldierService.create(this.profileForm.value as ISoldierPage).subscribe((res: any) => {
+      // console.log(res);
+      if(res) {
+        this.profileForm.reset();
+      }
+    });
   }
 
 }
