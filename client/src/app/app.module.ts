@@ -13,8 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './captain-screen/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
     SoldierFormComponent,
     CaptainScreenComponent,
     SearchComponent,
-    LoaderComponent
+    LoaderComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatRadioModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

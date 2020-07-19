@@ -26,31 +26,31 @@
             <div class="data-block">
                 <mat-form-field>
                     <mat-label>מס' ת.ז</mat-label>
-                    <input matInput placeholder="אנא מלא מספר ת.ז" [(ngModel)]="personData.reporterIdentityNumber">
+                    <input matInput required placeholder="אנא מלא מספר ת.ז" [(ngModel)]="personData.reporterIdentityNumber">
                 </mat-form-field>
             </div>
             <div class="data-block">
                 <mat-form-field>
                     <mat-label>שם פרטי</mat-label>
-                    <input matInput placeholder="הכנס את שמך הפרטי" [(ngModel)]="personData.reporterFirstName">
+                    <input matInput required placeholder="הכנס את שמך הפרטי" [(ngModel)]="personData.reporterFirstName">
                 </mat-form-field>
             </div>
             <div class="data-block">
                 <mat-form-field>
                     <mat-label>שם משפחה</mat-label>
-                    <input matInput placeholder="הכנס את שם המשפחה שלך" [(ngModel)]="personData.reporterLastName">
+                    <input matInput required placeholder="הכנס את שם המשפחה שלך" [(ngModel)]="personData.reporterLastName">
                 </mat-form-field>
             </div>
             <div class="data-block">
                 <mat-form-field>
                     <mat-label>מס' טלפון</mat-label>
-                    <input matInput placeholder="אנא מלא מספר ת.ז" [(ngModel)]="personData.reporterPhoneNumber">
+                    <input matInput required placeholder="אנא הכנס מס' טלפון" [(ngModel)]="personData.reporterPhoneNumber">
                 </mat-form-field>
             </div>
             <div class="data-block">
                 <mat-form-field appearance="fill">
                     <mat-label>דרגה</mat-label>
-                    <mat-select [(ngModel)]="personData.reporterRank">
+                    <mat-select required [(ngModel)]="personData.reporterRank">
                         <mat-option *ngFor="let rank of ranks" [value]="rank.value">
                             {{rank.viewValue}}
                         </mat-option>
@@ -60,7 +60,7 @@
             <div class="data-block">
                 <mat-form-field>
                     <mat-label>כתובת דוא"ל</mat-label>
-                    <input matInput placeholder='הכנס את כתובת הדוא"ל שלך' [(ngModel)]="personData.reporterMail">
+                    <input matInput required placeholder='הכנס את כתובת הדוא"ל שלך' [(ngModel)]="personData.reporterMail">
                 </mat-form-field>
             </div>
 
@@ -70,7 +70,8 @@
             <form class="msg-form">
                 <mat-form-field class="msg-full-width">
                     <mat-label class="default-color">הערות נוספות</mat-label>
-                    <input matInput #message maxlength="256" placeholder="ציין הערות רלוונטיות למקרה" [value]="personData.reporterNotes" [(ngModel)]="personData.reporterNotes">
+                    <input matInput #message maxlength="256" placeholder="ציין הערות רלוונטיות למקרה"
+                        [value]="personData.reporterNotes" [(ngModel)]="personData.reporterNotes">
                     <mat-hint align="start"><strong>הימנע מציון מידע רגיש</strong> </mat-hint>
                     <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
                 </mat-form-field>
@@ -78,9 +79,13 @@
         </div>
     </div>
 
-    <div style="justify-self: center; margin-top: 80px;">
-        <button style="margin-right: 200px; background-color: red; height: 50px;width: 200px; border-radius: 40px;"></button>
-        <button style="background-color: green; height: 50px;width: 200px; border-radius: 40px;"></button>
+    <div id="buttons">
+        <button class="acceptbutton red" [disabled]="sentFlag || !isAllDataFull()" (click)="confirmation(false)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+        </button>
+        <button class="acceptbutton green" [disabled]="sentFlag || !isAllDataFull()" (click)="confirmation(true)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">done_outline</mat-icon>
+        </button>
     </div>
 
     <ng-template #loader>
