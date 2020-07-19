@@ -29,10 +29,10 @@ export class SoldierService {
   // create(json: ISoldierPage) {
     
     const res = {
-      suspectIdentityNumber: json.idnumber,
+      suspectIdentityNumber: json.idnumber.toString(),
       suspectFirstName: json.firstName,
       suspectLastName: json.lastName,
-      suspectPhoneNumer: json.phoneNumber,
+      suspectPhoneNumer: json.phoneNumber.toString(),
       suspectTimeOfPositioning: `${json.timeOfPositioningDate}T${json.timeOfPositioningTime}:00.000Z`,
       suspectPlaceOfPositioning: json.placeOfPositioning,
       reporterFirstName: json.firstNameCommander,
@@ -40,7 +40,7 @@ export class SoldierService {
       reporterRank: 1,
       reporterIdentityNumber: '',
       reporterMail: '',
-      reporterPhoneNumber:  json.phoneNumberCommander,
+      reporterPhoneNumber:  json.phoneNumberCommander.toString(),
       clinicInCharge: 1,
       suspectHasDeclaredInocense: json.hasDeclaredInocense,
       suspectWasInBaseDuringPos: json.wasInBaseDuringPos,
@@ -54,6 +54,6 @@ export class SoldierService {
       hamalNotes: ''
     }
     console.log(res);
-    return this.http.post('https://coronacrud.azurewebsites.net/api/open/request/', json)
+    return this.http.post('https://coronacrud.azurewebsites.net/api/open/request/', res)
   }
 }
