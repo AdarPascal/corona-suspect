@@ -3,29 +3,84 @@
     <div *ngIf="getPersonData(); else loader">
         <div id="usercard-title">פרטי החשוד</div>
         <div id="usercard">
-                <div class="data-block">מס' ת.ז: {{ personData.suspectIdentityNumber }}</div>
-                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
-                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
-                <div class="data-block">מס' טלפון: {{ personData.suspectPhoneNumer }}</div>
-                <div class="data-block">מיקום האיכון: {{ personData.suspectPlaceOfPositioning }}</div>
-                <div class="data-block">זמן האיכון: {{ parseTime(personData.suspectTimeOfPositioning) }}</div>
+            <div class="data-block">מס' ת.ז: {{ personData.suspectIdentityNumber }}</div>
+            <div class="data-block">שם פרטי: {{ personData.suspectFirstName }}</div>
+            <div class="data-block">שם משפחה: {{ personData.suspectLastName }}</div>
+            <div class="data-block">מס' טלפון: {{ personData.suspectPhoneNumer }}</div>
+            <div class="data-block">מיקום האיכון: {{ personData.suspectPlaceOfPositioning }}</div>
+            <div class="data-block">זמן האיכון: {{ parseTime(personData.suspectTimeOfPositioning) }}</div>
+            <div class="data-block">מערער על האיכון: {{ booleanToHebrewString(personData.suspectHasDeclaredInocense) }}
+            </div>
+            <div class="data-block">נכח ביחידה בזמן האיכון:
+                {{ booleanToHebrewString(personData.suspectWasInBaseDuringPos) }}</div>
+            <div class="data-block">נשלח לבידוד: {{ booleanToHebrewString(personData.suspectWasSentToConfinment) }}
+            </div>
 
 
         </div>
     </div>
-    
-    <div *ngIf="getPersonData(); else loader">
-        <div id="usercard-title">פרטי המפקד</div>
-        <div id="usercard">
-                <div class="data-block">מס' ת.ז: {{ personData.suspectIdentityNumber }}</div>
-                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
-                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
-                <div class="data-block">מס' טלפון: {{ personData.suspectPhoneNumer }}</div>
-                <div class="data-block">מיקום האיכון: {{ personData.suspectPlaceOfPositioning }}</div>
-                <div class="data-block">זמן האיכון: {{ parseTime(personData.suspectTimeOfPositioning) }}</div>
 
+    <div *ngIf="getPersonData(); else loader">
+        <div id="usercard-title" class="captaintitle">פרטי המפקד</div>
+        <div id="captaincard">
+            <div class="data-block">
+                <mat-form-field>
+                    <mat-label>מס' ת.ז</mat-label>
+                    <input matInput placeholder="אנא מלא מספר ת.ז" [(ngModel)]="personData.reporterIdentityNumber">
+                </mat-form-field>
+            </div>
+            <div class="data-block">
+                <mat-form-field>
+                    <mat-label>שם פרטי</mat-label>
+                    <input matInput placeholder="הכנס את שמך הפרטי" [(ngModel)]="personData.reporterFirstName">
+                </mat-form-field>
+            </div>
+            <div class="data-block">
+                <mat-form-field>
+                    <mat-label>שם משפחה</mat-label>
+                    <input matInput placeholder="הכנס את שם המשפחה שלך" [(ngModel)]="personData.reporterLastName">
+                </mat-form-field>
+            </div>
+            <div class="data-block">
+                <mat-form-field>
+                    <mat-label>מס' טלפון</mat-label>
+                    <input matInput placeholder="אנא מלא מספר ת.ז" [(ngModel)]="personData.reporterPhoneNumber">
+                </mat-form-field>
+            </div>
+            <div class="data-block">
+                <mat-form-field appearance="fill">
+                    <mat-label>דרגה</mat-label>
+                    <mat-select [(ngModel)]="personData.reporterRank">
+                        <mat-option *ngFor="let rank of ranks" [value]="rank.value">
+                            {{rank.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="data-block">
+                <mat-form-field>
+                    <mat-label>כתובת דוא"ל</mat-label>
+                    <input matInput placeholder='הכנס את כתובת הדוא"ל שלך' [(ngModel)]="personData.reporterMail">
+                </mat-form-field>
+            </div>
 
         </div>
+
+        <div id="msg">
+            <form class="msg-form">
+                <mat-form-field class="msg-full-width">
+                    <mat-label class="default-color">הערות נוספות</mat-label>
+                    <input matInput #message maxlength="256" placeholder="ציין הערות רלוונטיות למקרה" [value]="personData.reporterNotes" [(ngModel)]="personData.reporterNotes">
+                    <mat-hint align="start"><strong>הימנע מציון מידע רגיש</strong> </mat-hint>
+                    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+
+    <div style="justify-self: center; margin-top: 80px;">
+        <button style="margin-right: 200px; background-color: red; height: 50px;width: 200px; border-radius: 40px;"></button>
+        <button style="background-color: green; height: 50px;width: 200px; border-radius: 40px;"></button>
     </div>
 
     <ng-template #loader>
@@ -35,9 +90,6 @@
     </ng-template>
 </div>
 
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
-</form>
+<div>
+
+</div>
