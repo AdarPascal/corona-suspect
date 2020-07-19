@@ -23,3 +23,7 @@ mat-form-field {
 .radio {
     width: 350px;
 }
+
+#sendBtn {
+    width: 70px;
+}
