@@ -1,68 +1,88 @@
+<div class="flex-container" [formGroup]="profileForm">
+    <mat-form-field appearance="legacy">
+        <mat-label>ID Number</mat-label>
+        <input matInput type="number" placeholder="ID Number" formControlName="idnumber" required>
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
+        <mat-hint>First Name</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
+        <mat-hint>Last Name</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="number" placeholder="Phone Number" formControlName="phoneNumber" required>
+        <mat-hint>Phone Number</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>Time Of Positioning</mat-label>
+        <input matInput type="date" placeholder="Time Of Positioning" formControlName="timeOfPositioning" required>
+        <mat-hint>Time Of Positioning</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>Place Of Positioning</mat-label>
+        <input matInput type="text" placeholder="Place Of Positioning" formControlName="placeOfPositioning" required>
+        <mat-hint>Place Of Positioning</mat-hint>
+    </mat-form-field>
+    <br>
+    <div class="radio">
+        <label>Has Declared Inocense: </label>
+        <mat-radio-group formControlName="hasDeclaredInocense" required>
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <br>
+    <div class="radio">
+        <label>Was In Base During Pos: </label>
+        <mat-radio-group formControlName="wasInBaseDuringPos" required>
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <br>
+    <div class="radio">
+        <label>Was Sent To Confinment: </label>
+        <mat-radio-group formControlName="wasSentToConfinment" required>
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>First Name Commander</mat-label>
+        <input matInput type="text" placeholder="First Name Commander" formControlName="firstNameCommander" required>
+        <mat-hint>First Name</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>Last Name Commander</mat-label>
+        <input matInput type="text" placeholder="Last Name Commander" formControlName="lastNameCommander" required>
+        <mat-hint>Last Name Commander</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="standard">
+        <mat-label>Phone Number Commander</mat-label>
+        <input matInput type="number" placeholder="Phone Number Commander" formControlName="phoneNumberCommander" required>
+        <mat-hint>Phone Number Commander</mat-hint>
+    </mat-form-field>
+    <br>
 
-<body>
-    <h1>Soldier Forms</h1>
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-      
-    <label>
-        ID Number:
-        <input type="text" formControlName="idnumber">
-    </label>
-    
-    <label>
-        First Name:
-        <input type="text" formControlName="firstName">
-    </label>
-    
-    <label>
-        Last Name:
-        <input type="text" formControlName="lastName">
-    </label>
-    
-    <label>
-        Phone Number:
-        <input type="tel" formControlName="phoneNumber">
-    </label>
-    
-    <label>
-        Time Of Positioning:
-        <input type="date" formControlName="TimeOfPositioning">
-    </label>
-    
-    <label>
-        Place Of Positioning:
-        <input type="text" formControlName="PlaceOfPositioning">
-    </label>
-
-    <label>
-        Has Declared Inocense:
-        <div class="divYesNo">
-            <input type="radio" class="yes" id="yes" name="HasDeclaredInocense" value="true" formControlName="HasDeclaredInocense">
-            <label class="labelyesno" for="yes">Yes</label><br>
-            <input type="radio" class="no" id="no" name="HasDeclaredInocense" value="false" formControlName="HasDeclaredInocense">
-            <label class="labelyesno" for="no">No</label><br>
-        </div>
-    </label>
-    
-    <label>
-        Was In Base During Pos:
-        <input type="radio" class="yes" id="yes" name="WasInBaseDuringPos" value="true" formControlName="WasInBaseDuringPos">
-        <label class="labelyesno" for="yes">Yes</label><br>
-        <input  type="radio" class="no" id="no" name="WasInBaseDuringPos" value="false" formControlName="WasInBaseDuringPos">
-        <label class="labelyesno" for="no">No</label><br>
-    </label>
-    
-    <label>
-        Was Sent To Confinment:
-        <input type="radio" class="yes" id="yes" name="WasSentToConfinment" value="true" formControlName="WasSentToConfinment">
-        <label class="labelyesno" for="yes">Yes</label><br>
-        <input type="radio" class="no" id="no" name="WasSentToConfinment" value="false" formControlName="WasSentToConfinment">
-        <label class="labelyesno" for="no">No</label><br>
-    </label>
-    
-    </form>
-    
     <!-- <p>
-        Value: {{ profileForm.value.HasDeclaredInocense }}
+        Value: {{ profileForm }}
     </p> -->
-    
-</body>
+
+    <p>
+        <button [disabled]="profileForm.status === 'INVALID'" (click)="onSend()">Send</button>
+    </p>
+</div>
