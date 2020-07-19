@@ -37,21 +37,21 @@ export class SoldierService {
       suspectPlaceOfPositioning: json.placeOfPositioning,
       reporterFirstName: json.firstNameCommander,
       reporterLastName: json.lastNameCommander,
-      reporterRank: 1,
-      reporterIdentityNumber: '',
-      reporterMail: '',
+      // reporterRank: 1,
+      // reporterIdentityNumber: '',
+      // reporterMail: '',
       reporterPhoneNumber:  json.phoneNumberCommander.toString(),
-      clinicInCharge: 1,
+      // clinicInCharge: 1,
       suspectHasDeclaredInocense: json.hasDeclaredInocense,
       suspectWasInBaseDuringPos: json.wasInBaseDuringPos,
       suspectWasSentToConfinment: json.wasSentToConfinment,
-      isColonelConfinment: false,
-      isClinicConfinment: false,
-      wasExported: false,
-      workFinished: false,
-      reporterNotes: '',
-      clinicNotes: '',
-      hamalNotes: ''
+      // isColonelConfinment: false,
+      // isClinicConfinment: false,
+      // wasExported: false,
+      // workFinished: false,
+      // reporterNotes: '',
+      // clinicNotes: '',
+      // hamalNotes: ''
     }
     console.log(res);
     return this.http.post('https://coronacrud.azurewebsites.net/api/open/request/', res)
