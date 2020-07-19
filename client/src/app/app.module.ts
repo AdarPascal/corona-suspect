@@ -12,6 +12,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatFormFieldModule,
     BrowserAnimationsModule
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
