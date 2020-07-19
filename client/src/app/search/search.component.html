@@ -1,0 +1,6 @@
+<div class="grid-container">
+    <h2>בקרת מקרים</h2>
+    <p id="input-header">אנא הכנס מס' ת.ז</p>
+    <input type="number" [(ngModel)]="idNumber">
+    <button [disabled]="!idNumber" (click)="searchCase()">חיפוש</button>
+</div>

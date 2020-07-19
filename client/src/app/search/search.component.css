@@ -1,0 +1,53 @@
+@font-face{
+    src: url("../../assets/Assistant-SemiBold.ttf");
+    font-family: assistant;
+}
+
+.grid-container{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    font-family: assistant;
+}
+
+h2{
+    text-align: center;
+    font-size: 60px;
+}
+
+input{
+    height: 40px;
+    width: 150px;
+    border-width: 1px;
+    border-radius: 5px;
+    outline: none;
+    border-color: rgb(104, 104, 104);
+    border-style: solid;
+    transition: 0.5s;
+    text-align: center;
+    font-size: 15px;
+    justify-self: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:hover{
+    border-color: rgb(148, 164, 255);
+}
+
+#input-header {
+    font-family: assistant;
+    font-size: 20px;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    justify-self: center;
+    margin-top: 20px;
+    font-family: assistant;
+}
