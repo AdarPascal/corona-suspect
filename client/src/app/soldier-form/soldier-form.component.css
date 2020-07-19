@@ -1,3 +1,11 @@
+body {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+}
+
 :host {
     display: flex;
     flex-direction: column;
@@ -14,6 +22,17 @@ label {
 
 input {
     height: 2em;
+    width: 15em;
     font-size: 1em;
     padding-left: .4em;
+}
+
+.yes {
+    height: 15px;
+    width: 15px;
+}
+
+.no {
+    height: 15px;
+    width: 15px;
 }
