@@ -1,0 +1,84 @@
+@font-face{
+    src: url("../../assets/Assistant-SemiBold.ttf");
+    font-family: assistant;
+}
+.grid-container{
+    display: grid;
+    justify-content: center;
+
+}
+
+.grid-contain{
+    grid-template-columns: auto auto auto auto;
+
+}
+
+#loader{
+    margin-top: 20%;
+}
+
+#table {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+}
+
+.wrapper {
+    margin-top: 15%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-gap: 100px;
+    color: #444;
+}
+  
+.box {
+    background-color: rgb(126, 117, 255);
+    color: #fff;
+    border-radius: 5px;
+    padding: 40px;
+    width: 20px;
+    font-size: 150%;
+}
+
+#usercard{
+    background-color: rgba(4, 37, 19, 0.575);
+    height: 20vh;
+    width: 80vw;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    grid-gap: 10px;
+    direction: rtl;
+    box-shadow: 0px 10px 20px #0000005c;
+    padding: 10px;
+}
+
+.data-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: assistant;
+}
+
+h1{
+    text-align: center;
+}
+
+#usercard-title{
+  text-align: center;
+  font-family: assistant;
+  color: rgba(4, 37, 19, 0.575);
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
