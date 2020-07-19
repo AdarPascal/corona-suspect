@@ -12,6 +12,12 @@ export class CaptainScreenComponent implements OnInit {
 
   personId: string;
   personData: object;
+  ranks = [
+    { value: 1, viewValue: 'סא"ל' },
+    { value: 2, viewValue: 'אל"מ' },
+    { value: 3, viewValue: 'תא"ל' }
+  ];
+
   constructor(private route: ActivatedRoute, private apigetservice: ApigetService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,10 +26,13 @@ export class CaptainScreenComponent implements OnInit {
       this.personData = res;
       console.log(this.personData)
     });
+    setInterval(() => {
+      console.log(this.personData);
+    }, 5000)
   }
 
   getPersonData() {
-    if(this.personData) {
+    if (this.personData) {
       return this.getPersonData
     }
   }
@@ -31,5 +40,7 @@ export class CaptainScreenComponent implements OnInit {
   parseTime(time) {
     return moment(time).format('HH:MM DD/MM/YY');
   }
+
+  booleanToHebrewString(input: boolean): string { return input ? "חיובי" : "שלילי" }
 
 }
