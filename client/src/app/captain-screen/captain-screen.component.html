@@ -1,1 +1,43 @@
-111111
+<h1>אישור מפקד</h1>
+<div class="grid-container">
+    <div *ngIf="getPersonData(); else loader">
+        <div id="usercard-title">פרטי החשוד</div>
+        <div id="usercard">
+                <div class="data-block">מס' ת.ז: {{ personData.suspectIdentityNumber }}</div>
+                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
+                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
+                <div class="data-block">מס' טלפון: {{ personData.suspectPhoneNumer }}</div>
+                <div class="data-block">מיקום האיכון: {{ personData.suspectPlaceOfPositioning }}</div>
+                <div class="data-block">זמן האיכון: {{ parseTime(personData.suspectTimeOfPositioning) }}</div>
+
+
+        </div>
+    </div>
+    
+    <div *ngIf="getPersonData(); else loader">
+        <div id="usercard-title">פרטי המפקד</div>
+        <div id="usercard">
+                <div class="data-block">מס' ת.ז: {{ personData.suspectIdentityNumber }}</div>
+                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
+                <div class="data-block">שם מלא: {{ personData.suspectFirstName }} {{ personData.suspectLastName }}</div>
+                <div class="data-block">מס' טלפון: {{ personData.suspectPhoneNumer }}</div>
+                <div class="data-block">מיקום האיכון: {{ personData.suspectPlaceOfPositioning }}</div>
+                <div class="data-block">זמן האיכון: {{ parseTime(personData.suspectTimeOfPositioning) }}</div>
+
+
+        </div>
+    </div>
+
+    <ng-template #loader>
+        <div id="loader">
+            <app-loader></app-loader>
+        </div>
+    </ng-template>
+</div>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+</form>

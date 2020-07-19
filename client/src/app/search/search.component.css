@@ -42,6 +42,7 @@ input:hover{
 #input-header {
     font-family: assistant;
     font-size: 20px;
+    direction: rtl;
 }
 
 button {
