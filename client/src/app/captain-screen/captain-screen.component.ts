@@ -26,9 +26,9 @@ export class CaptainScreenComponent implements OnInit {
       this.personData = res;
       console.log(this.personData)
     });
-    setInterval(() => {
-      console.log(this.personData);
-    }, 5000)
+    // setInterval(() => {
+    //   console.log(this.personData);
+    // }, 5000)
   }
 
   getPersonData() {

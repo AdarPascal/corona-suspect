@@ -6,8 +6,8 @@
 .grid-container{
     display: grid;
     justify-content: center;
-    text-align: center;
-    font-family: assistant;
+    /* text-align: center;
+    font-family: assistant; */
 }
 
 h2{
@@ -52,3 +52,6 @@ button {
     margin-top: 20px;
     font-family: assistant;
 }
+
+
+
