@@ -30,7 +30,7 @@ import { MatRadioModule } from '@angular/material/radio';
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     MatRadioModule
   ],
   providers: [],
