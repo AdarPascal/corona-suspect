@@ -1,4 +1,4 @@
 export const config = {
-    serverHost: "https://coronacrud.azurewebsites.net",
-    getPersonDataUrl: (id) => `api/request/${id}`
+    serverHost: "https://coronacrud.azurewebsites.net/api/request",
+    getPersonDataUrl: (id) => `${config.serverHost}/${id}`,
 }
