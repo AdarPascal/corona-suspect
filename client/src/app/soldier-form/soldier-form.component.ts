@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SoldierService, ISoldierPage } from './soldier.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../captain-screen/dialog/dialog.component';
 
 @Component({
   selector: 'app-soldier-form',
@@ -24,7 +26,7 @@ export class SoldierFormComponent implements OnInit {
     phoneNumberCommander: new FormControl('', [Validators.required]),
   });
 
-  constructor(public soldierService: SoldierService) { }
+  constructor(public soldierService: SoldierService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +37,7 @@ export class SoldierFormComponent implements OnInit {
       // console.log(res);
       if(res) {
         this.profileForm.reset();
+        this.dialog.open(DialogComponent, { disableClose: true });
       }
     });
   }
