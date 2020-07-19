@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export interface ISoldierPage {
-  idnumber: String,
-  firstName: String,
-  lastName: String,
-  phoneNumber: String,
-  timeOfPositioning: String,
-  placeOfPositioning: String,
-  hasDeclaredInocense: Boolean,
-  wasInBaseDuringPos: Boolean,
-  wasSentToConfinment: Boolean,
-  firstNameCommander: String,
-  lastNameCommander: String,
-  phoneNumberCommander: String,
+  idnumber: string,
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  timeOfPositioningDate: string,
+  timeOfPositioningTime: string,
+  placeOfPositioning: string,
+  hasDeclaredInocense: boolean,
+  wasInBaseDuringPos: boolean,
+  wasSentToConfinment: boolean,
+  firstNameCommander: string,
+  lastNameCommander: string,
+  phoneNumberCommander: string,
 }
 
 @Injectable({
@@ -30,7 +31,7 @@ export class SoldierService {
       suspectFirstName: json.firstName,
       suspectLastName: json.lastName,
       suspectPhoneNumer: json.phoneNumber,
-      suspectTimeOfPositioning: json.timeOfPositioning,
+      suspectTimeOfPositioning: `${json.timeOfPositioningDate}T${json.timeOfPositioningTime}:00.000Z`,
       suspectPlaceOfPositioning: json.placeOfPositioning,
       reporterFirstName: json.firstNameCommander,
       reporterLastName: json.lastNameCommander,
