@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface ISoldierPage {
   idnumber: string,
@@ -22,15 +23,16 @@ export interface ISoldierPage {
 })
 export class SoldierService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  create(json: ISoldierPage) {
+  create(json: ISoldierPage): Observable<Object> {
+  // create(json: ISoldierPage) {
     
     const res = {
-      suspectIdentityNumber: json.idnumber,
+      suspectIdentityNumber: json.idnumber.toString(),
       suspectFirstName: json.firstName,
       suspectLastName: json.lastName,
-      suspectPhoneNumer: json.phoneNumber,
+      suspectPhoneNumer: json.phoneNumber.toString(),
       suspectTimeOfPositioning: `${json.timeOfPositioningDate}T${json.timeOfPositioningTime}:00.000Z`,
       suspectPlaceOfPositioning: json.placeOfPositioning,
       reporterFirstName: json.firstNameCommander,
@@ -38,7 +40,7 @@ export class SoldierService {
       reporterRank: 1,
       reporterIdentityNumber: '',
       reporterMail: '',
-      reporterPhoneNumber:  json.phoneNumberCommander,
+      reporterPhoneNumber:  json.phoneNumberCommander.toString(),
       clinicInCharge: 1,
       suspectHasDeclaredInocense: json.hasDeclaredInocense,
       suspectWasInBaseDuringPos: json.wasInBaseDuringPos,
@@ -52,5 +54,6 @@ export class SoldierService {
       hamalNotes: ''
     }
     console.log(res);
+    return this.http.post('https://coronacrud.azurewebsites.net/api/open/request/', res)
   }
 }

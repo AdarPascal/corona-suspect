@@ -1,3 +1,6 @@
+h1{
+    text-align: center;
+}
 
 .flex-container {
     display: grid;
@@ -22,4 +25,8 @@ mat-form-field {
 
 .radio {
     width: 350px;
+}
+
+#sendBtn {
+    width: 70px;
 }
